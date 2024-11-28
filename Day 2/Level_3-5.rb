@@ -41,20 +41,20 @@ class Player
 
   def play_turn(warrior)
   	if taking_damage?(warrior)
-  		if warrior.feel.empty?
-			warrior.walk!
-		else
-       			warrior.attack!
-     		end
-    	elsif warrior.health < 20
-      		warrior.rest!
-    	elsif warrior.feel.empty?
-      		warrior.walk!
-    	else
-     		warrior.attack!
-    	end
+  	  if warrior.feel.empty?
+		warrior.walk!
+	  else
+      	warrior.attack!
+      end
+    elsif warrior.health < 20
+      	warrior.rest!
+    elsif warrior.feel.empty?
+      	warrior.walk!
+    else
+     	warrior.attack!
+    end
 
-    	@health = warrior.health
+    @health = warrior.health
   end
 
   private # ??
@@ -78,33 +78,33 @@ end
 # Solution
 class Player
   def initialize
-    	@health = 20 	# full health 
+  	@health = 20 	# full health 
   end
 
   def play_turn(warrior)
 	if warrior.feel.captive?
-		warrior.rescue!
+	  warrior.rescue!
 	elsif taking_damage?(warrior)
-		if warrior.feel.empty? 
-			warrior.walk!
-		else
-			warrior.attack!
-		end
+	  if warrior.feel.empty? 
+		warrior.walk!
+	  else
+		warrior.attack!
+	  end
 	elsif warrior.health < 20
 		warrior.rest!
 	elsif warrior.feel.empty?
 		warrior.walk!
 	else
 		warrior.attack!
-	end
+  	end
 		
-	@health = warrior.health	
-    end
+  @health = warrior.health	
+  end
 
-    private
+  private
 	
-    def taking_damage?(warrior)
+  def taking_damage?(warrior)
 	warrior.health < @health
-    end
+  end
 end
 
