@@ -6,7 +6,7 @@ Level 4, however, was a different story. It felt overwhelming. I faced two Sludg
 
 When I returned, I still couldn’t defeat the level. Reluctantly, I turned to ChatGPT for help. Although I wished I didn’t need assistance, the response provided valuable insights: I had to nest my conditions more deeply than I initially thought. Interestingly, even ChatGPT needed a few tries to get it right. The suggested solution introduced some new concepts, such as the private keyword and duplicate methods, which puzzled me. Despite my questions, the code worked, so I decided to move forward and explore these concepts later.
 
-Level 5 introduced a new twist: captives to rescue. I wondered if I could adapt the solution from Level 4 (thanks again, ChatGPT!) with minor adjustments. I added a simple if condition and converted taking_damage? into an elsif. To my surprise, it worked! I felt a sense of accomplishment but also lingering guilt about needing help with the previous level.
+Level 5 introduced a new twist: captives to rescue. I wondered if I could adapt the solution from Level 4 (thanks again, ChatGPT!) with minor adjustments. I added a simple if condition and converted "taking_damage?" into an elsif. To my surprise, it worked! I felt a sense of accomplishment but also lingering guilt about needing help with the previous level.
 
 Satisfied with my progress but mentally exhausted, I called it a day, ready to tackle the next challenge after some well-deserved rest.
 
