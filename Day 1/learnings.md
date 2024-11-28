@@ -8,7 +8,7 @@
   - Example:
     """
     if condition
-      # Code
+       Code
     end
     """
 - **No colon** (`:`) needed to separate statements.
