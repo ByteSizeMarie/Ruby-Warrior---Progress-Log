@@ -11,15 +11,15 @@
 
 # Solution
 class Player
-	def play_turn(warrior)
-    		if warrior.health < 20 && warrior.feel.empty?
-      			warrior.rest!
-    		elsif warrior.feel.empty?
-      			warrior.walk!
-    		else
-      			warrior.attack!
-    		end
-  	end
+  def play_turn(warrior)
+    if warrior.health < 20 && warrior.feel.empty?
+    	warrior.rest!
+    elsif warrior.feel.empty?
+    	warrior.walk!
+    else
+    	warrior.attack!
+    end
+  end
 end
 
 
@@ -35,34 +35,33 @@ end
 
 # Solution (ChatGPT)
 class Player
-  	def initialize
-    		@health = 20 	# full health 
-  	end
+  def initialize
+  	@health = 20 	# full health 
+  end
 
-  	def play_turn(warrior)
-   		 if taking_damage?(warrior)
+  def play_turn(warrior)
+  	if taking_damage?(warrior)
+  		if warrior.feel.empty?
+			warrior.walk!
+		else
+       			warrior.attack!
+     		end
+    	elsif warrior.health < 20
+      		warrior.rest!
+    	elsif warrior.feel.empty?
+      		warrior.walk!
+    	else
+     		warrior.attack!
+    	end
 
-     			 if warrior.feel.empty?
-       				 warrior.walk!
-      			else
-       				 warrior.attack!
-     			 end
-    		elsif warrior.health < 20
-      			warrior.rest!
-    		elsif warrior.feel.empty?
-      			warrior.walk!
-    		else
-     			 warrior.attack!
-    		end
+    	@health = warrior.health
+  end
 
-    		@health = warrior.health
-  	end
+  private # ??
 
-  	private # ??
-
-  	def taking_damage?(warrior)
-    		warrior.health < @health
-  	end
+  def taking_damage?(warrior)
+  	warrior.health < @health
+  end
 end
 
 # Level 5
@@ -78,34 +77,34 @@ end
 
 # Solution
 class Player
-  	def initialize
-    		@health = 20 	# full health 
-  	end
+  def initialize
+    	@health = 20 	# full health 
+  end
 
-  	def play_turn(warrior)
-		if warrior.feel.captive?
-			warrior.rescue!
-		elsif taking_damage?(warrior)
-   			if warrior.feel.empty? 
-				warrior.walk!
-			else
-				warrior.attack!
-			end
-		elsif warrior.health < 20
-			warrior.rest!
-		elsif warrior.feel.empty?
+  def play_turn(warrior)
+	if warrior.feel.captive?
+		warrior.rescue!
+	elsif taking_damage?(warrior)
+		if warrior.feel.empty? 
 			warrior.walk!
 		else
 			warrior.attack!
 		end
-		
-		@health = warrior.health	
-  	end
-
-	private
-	
-	def taking_damage?(warrior)
-		warrior.health < @health
+	elsif warrior.health < 20
+		warrior.rest!
+	elsif warrior.feel.empty?
+		warrior.walk!
+	else
+		warrior.attack!
 	end
+		
+	@health = warrior.health	
+    end
+
+    private
+	
+    def taking_damage?(warrior)
+	warrior.health < @health
+    end
 end
 
